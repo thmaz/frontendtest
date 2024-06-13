@@ -1,0 +1,102 @@
+/* General styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #eef2f7;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container for the entire application */
+.container {
+  width: 80%;
+  margin-top: 0 auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #f8f9fa;
+}
+
+.patient-cell {
+  /* styles for headers and cells */
+  padding: 10px; /* add some padding */
+  border: 1px solid #ddd; /* add a border */
+}
+
+.patient-header {
+  /* styles specific to headers */
+  cursor: pointer; /* make headers clickable for sorting */
+  padding: 10px; /* add some padding */
+  border: 1px solid #ddd; /* add a border */
+}
+div {
+  text-align: center;
+}
+h1 {
+  font-size: 300%;
+  color: #333;
+  margin: 0 auto;
+  text-decoration: none;
+  position: relative;
+}
+h1::after {
+  content: "";  
+  position: absolute;
+  margin-left: -260px;
+  bottom: -2px; 
+  width: 15%; 
+  height: 10%; 
+  background-color: #333
+
+}
+
+table {
+  align-items: center;
+  margin: 0 auto;
+  width: 50%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  margin-top: 20%;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+th.active {
+  background-color: #0e9bd3;
+  color: white;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+td{
+  align-items: center;
+  margin-left: 50% auto;
+}
+
+.patient-table {
+  /* styles for the table */
+  border-collapse: collapse; /* remove borders between cells */
+}
+
+.patient-header,
+.patient-cell {
+  /* styles for headers and cells */
+  padding: 10px; /* add some padding */
+  border: 1px solid #ddd; /* add a border */
+}
+
+.patient-header {
+  /* styles specific to headers */
+  cursor: pointer; /* make headers clickable for sorting */
+}
+
