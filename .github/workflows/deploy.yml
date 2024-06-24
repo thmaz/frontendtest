@@ -70,8 +70,8 @@ jobs:
         password: ${{ secrets.VM_PASSWORD }}
         # port: ${{ secrets.VM_PORT }}
         script:
-          docker pull zuydthmaz/frontendrepo:main
-          docker stop main || true
-          docker rm main || true
-          docker run -d --name main -p 8080 zuydthmaz/frontendrepo:main
+          sudo docker pull zuydthmaz/frontendrepo:main
+          sudo docker stop main || true
+          sudo docker rm main || true
+          sudo docker run -d --name main -p 8080 zuydthmaz/frontendrepo:main
       
