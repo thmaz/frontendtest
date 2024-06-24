@@ -59,7 +59,7 @@ jobs:
           push-to-registry: true
   
   deploy:
-    name: Build
+    name: Deploy to VM
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using password
