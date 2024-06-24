@@ -29,4 +29,4 @@ RUN npm install -g serve
 COPY --from=build /frontend/build /frontend/build
 
 # Set the command to serve the app
-CMD ["serve", "-s", "/frontend/build", "-l", "8080"]
+CMD ["serve", "-s", "/frontend/build", "-l", "8080", "-n", "-p", "0.0.0.0"]
