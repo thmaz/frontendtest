@@ -69,5 +69,5 @@ jobs:
         username: ${{ secrets.VM_USERNAME }}
         password: ${{ secrets.VM_PASSWORD }}
         # port: ${{ secrets.VM_PORT }}
-        script: whoami
+        script: touch testssh.txt
       
