@@ -69,5 +69,9 @@ jobs:
         username: ${{ secrets.VM_USERNAME }}
         password: ${{ secrets.VM_PASSWORD }}
         # port: ${{ secrets.VM_PORT }}
-        script: touch testssh.txt
+        script:
+          docker pull zuydthmaz/frontendrepo:latest
+          docker stop main || true
+          docker rm main || true
+          docker run -d --name main -p 8080:8080 zuydthmaz/frontendrepo:latest
       
