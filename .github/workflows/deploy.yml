@@ -68,10 +68,5 @@ jobs:
         host: ${{ secrets.VM_HOST }}
         username: ${{ secrets.VM_USERNAME }}
         password: ${{ secrets.VM_PASSWORD }}
-        # port: ${{ secrets.VM_PORT }}
-        script:
-          sudo docker pull zuydthmaz/frontendrepo:main
-          sudo docker stop main || true
-          sudo docker rm main || true
-          sudo docker run -d --name main -p 8080 zuydthmaz/frontendrepo:main
+        script: sudo ./deploy.sh
       
