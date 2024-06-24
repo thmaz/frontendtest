@@ -8,20 +8,16 @@ WORKDIR /frontend
 
 # 
 COPY package.json /frontend/package.json
-COPY package-lock.json package-lock.json
+COPY package-lock.json frontend/package-lock.json
 
 # Same as npm install
 RUN npm i
 
 COPY . /frontend
 
-ENV CI=true
-ENV PORT=3000
-
 CMD [ "npm", "start" ]
 
 FROM development AS build
-
 RUN npm run build
 
 
