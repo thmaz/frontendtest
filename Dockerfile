@@ -15,7 +15,7 @@ RUN npm i
 
 COPY . /frontend
 
-CMD [ "npm", "start" ]
+# CMD [ "npm", "start" ]
 
 FROM development AS build
 
