@@ -7,8 +7,8 @@ FROM node:lts AS development
 WORKDIR /frontend
 
 # 
-COPY package.json /package.json
-COPY package-lock.json /package-lock.json
+COPY package.json /frontend/package.json
+COPY package-lock.json /frontend/package-lock.json
 
 # Same as npm install
 RUN npm i
