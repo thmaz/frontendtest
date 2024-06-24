@@ -18,7 +18,10 @@ COPY . /frontend
 CMD [ "npm", "start" ]
 
 FROM development AS build
-RUN npm run build
+
+CMD [ "npm", "run", "build"]
+
+COPY /frontend/build /frontend/build
 
 
 FROM development as dev-envs
@@ -34,4 +37,5 @@ usermod -aG docker vscode
 EOF
 # install Docker tools (cli, buildx, compose)
 COPY --from=gloursdocker/docker / /
-CMD [ "npm", "start" ]
+
+CMD [ "serve", "/frontend/build", "-l 8080" ]
