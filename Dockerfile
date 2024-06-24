@@ -6,36 +6,37 @@ FROM node:lts AS development
 # Set working directory
 WORKDIR /frontend
 
-# 
+# Copy package.json and package-lock.json (if available)
 COPY /frontend/package.json /frontend/package.json
 # COPY package-lock.json frontend/package-lock.json
 
-# Same as npm install
+# Install dependencies
 RUN npm i
 
+# Copy all files to the container
 COPY . /frontend
 
-# CMD [ "npm", "start" ]
+# Build the React app
+RUN npm run build
 
-FROM development AS build
+# Serve the app
+FROM node:lts AS serve
 
-CMD [ "npm", "run", "build"]
+# Copy the build output to the serve stage
+COPY --from=development /frontend/build /frontend/build
 
-COPY /frontend/build /frontend/build
+# Set the command to serve the app
+CMD [ "serve", "/frontend/build", "-l", "8080" ]
 
+# Optional: Set up development environment
+FROM node:lts AS dev-envs
 
-FROM development as dev-envs
-RUN <<EOF
-apt update
-apt install -y --no-install-recommends git
-EOF
+# Install necessary packages
+RUN apt update && \
+    apt install -y --no-install-recommends git && \
+    useradd -s /bin/bash -m vscode && \
+    groupadd docker && \
+    usermod -aG docker vscode
 
-RUN <<EOF
-useradd -s /bin/bash -m vscode
-groupadd docker
-usermod -aG docker vscode
-EOF
-# install Docker tools (cli, buildx, compose)
+# Install Docker tools (cli, buildx, compose)
 COPY --from=gloursdocker/docker / /
-
-CMD [ "serve", "/frontend/build", "-l 8080" ]
