@@ -57,4 +57,17 @@ jobs:
           subject-name: zuydthmaz/frontendrepo
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
+  
+  deploy:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.VM_HOST }}
+        username: ${{ secrets.VM_USERNAME }}
+        password: ${{ secrets.VM_PASSWORD }}
+        # port: ${{ secrets.VM_PORT }}
+        script: whoami
       
