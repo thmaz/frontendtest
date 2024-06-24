@@ -8,7 +8,7 @@ WORKDIR /frontend
 
 # 
 COPY package.json /frontend/package.json
-COPY package-lock.json /frontend/package-lock.json
+COPY package-lock.json package-lock.json
 
 # Same as npm install
 RUN npm i
